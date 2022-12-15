@@ -7,6 +7,7 @@ html {
 body {
   margin: 0;
   font-family: "Kumbh Sans", sans-serif;
+  font-size: 1rem;
 }
 
 :root {
@@ -56,6 +57,9 @@ a {
   margin: 0 auto;
 }
 
+header {
+  position: relative;
+}
 .nav__ul {
   position: fixed;
   inset: 0;
@@ -124,12 +128,62 @@ a {
   display: flex;
 }
 
-/*  this might likely change */
-main {
+/* cart */
+.cart {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  width: 95%;
   margin: 0 auto;
-  text-align: center;
+  border-radius: 10px;
+  z-index: 1;
+  max-height: 100%;
+  height: fit-content;
 }
 
+.cart h4 {
+  color: var(--very-dark-blue);
+}
+
+.cart__empty {
+  text-align: center;
+  padding: 6.7rem 0;
+}
+
+.cart__empty p {
+  font-weight: bold;
+  color: var(--dark-grayish-blue);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e4e9f2;
+  margin-top: 2rem;
+}
+
+/* cart end */
+
+.nav__content-right button {
+  position: relative;
+}
+
+.cart__qty {
+  background-color: var(--orange);
+  border-radius: 6.5px;
+  padding: 1px 7px;
+  color: var(--white);
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: -6px;
+  font-size: 10px;
+}
+
+/*  this might likely change */
 .product__image {
   position: relative;
 }
