@@ -49,6 +49,7 @@ const Product: React.FC = () => {
             </button>
           </div>
           <div
+            style={{ display: "inline-block" }}
             className="add__to__cart"
             onClick={() =>
               product.addProductToCart({
