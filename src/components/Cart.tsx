@@ -10,7 +10,7 @@ const Cart: React.FC = () => {
     <div className="cart">
       <h4>Cart</h4>
       <div className="divider"></div>
-      <div className="container">
+      <div className="container cart__content">
         {!product?.cart.length ? (
           <div className="cart__empty">
             <p>Your cart is empty.</p>

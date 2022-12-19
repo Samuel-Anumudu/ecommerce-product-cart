@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 1rem;
+  line-height: var(--default-line-height);
 }
 
 :root {
@@ -19,6 +20,7 @@ body {
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
+  --default-line-height: 26px;
 }
 
 h1,
@@ -30,6 +32,105 @@ p,
 figure {
   margin: 0;
 }
+.product {
+  padding: 1rem 0 3rem 0;
+}
+.product__desc h4 {
+  font-size: 0.8125rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.product__desc h2 {
+  font-size: 1.75rem;
+  line-height: 32px;
+  color: var(--very-dark-blue);
+  padding: 1rem 0;
+}
+
+.product__desc p {
+  color: var(--dark-grayish-blue);
+  line-height: var(--default-line-height);
+  font-weight: 400;
+}
+
+.product__pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.75rem 0;
+}
+
+.product__pricing-discount {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product__pricing-discount span {
+  background-color: var(--pale-orange);
+  color: var(--orange);
+  width: 51px;
+  height: 27px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.product__price {
+  text-decoration: line-through;
+  color: var(--grayish-blue);
+  font-weight: bold;
+}
+
+.product__qty {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--light-grayish-blue);
+  border-radius: 10px;
+  padding: 1rem 1rem;
+}
+
+.product__qty button {
+  background-color: transparent;
+  border: 0;
+  color: var(--orange);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.product__qty span {
+  font-weight: bold;
+}
+
+.add__to__cart {
+  padding: 1rem 0;
+}
+.add__to__cart button {
+  border: 0;
+  background-color: var(--orange);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: var(--white);
+  font-weight: bold;
+  padding: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0px 20px 50px -20px var(--orange);
+}
+
+button:disabled {
+  color: var(--pale-orange);
+}
+
+/*  */
 
 nav {
   margin-bottom: 1.5rem;
@@ -69,7 +170,7 @@ header {
   z-index: 3;
   background-color: var(--white);
   /* transform class in component */
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   padding: 1.5rem 0 0 1.5rem;
 }
 
@@ -131,19 +232,18 @@ header {
 }
 
 /* cart */
-
 .cart {
   position: absolute;
-  top: 75px;
+  top: 80px;
   left: 0;
   right: 0;
-  background-color: var(--white);
+  background: var(--white);
   width: 95%;
   margin: 0 auto;
   border-radius: 10px;
   z-index: 1;
-  max-height: 100%;
-  height: fit-content;
+  min-height: fit-content;
+  /* height: fit-content; */
   box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5031);
 }
 
@@ -154,7 +254,7 @@ header {
 
 .cart__empty {
   text-align: center;
-  padding: 5rem 0 5.5rem;
+  padding: 5rem 0;
 }
 
 .cart__empty p {
@@ -166,13 +266,17 @@ header {
   width: 100%;
   height: 1px;
   background-color: #e4e9f2;
-  /* margin-top: 2rem; */
 }
 
 .cart__items {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 0 1rem 0;
+}
+
+.cart__items-text p {
+  color: var(--dark-grayish-blue);
 }
 
 .cart__items figure img {
@@ -184,13 +288,23 @@ header {
   border: 0;
   background-color: transparent;
 }
-
 button.delete__item {
   cursor: pointer;
 }
 
-/* cart end */
+.checkout__btn button {
+  border: 0;
+  background-color: var(--orange);
+  color: var(--white);
+  font-weight: bold;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
 
+/* cart end */
 .nav__content-right button {
   position: relative;
 }
@@ -256,7 +370,6 @@ button.delete__item {
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 2;
   }
-
   .modal__sliders {
     position: absolute;
     top: 50%;
@@ -266,7 +379,6 @@ button.delete__item {
     display: flex;
     justify-content: space-between;
   }
-
   .modal__sliders button {
     border: 0;
     width: 56px;
@@ -277,12 +389,11 @@ button.delete__item {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
-
   .modal__sliders button:hover {
     color: var(--orange);
   }
-
   .modal__image {
     display: flex;
     flex-direction: column;
@@ -291,7 +402,6 @@ button.delete__item {
     min-height: 100vh;
     padding-top: 1.5rem;
   }
-
   .modal__image-top {
     position: relative;
     display: flex;
@@ -306,11 +416,9 @@ button.delete__item {
     color: var(--white);
     font-size: 30px;
   }
-
   .modal__image .modal__image-top button.modal__image-btn:hover {
     color: var(--orange);
   }
-
   .modal__image figure img {
     width: 550px;
     border-radius: 15px;
@@ -321,7 +429,6 @@ button.delete__item {
     margin: 0;
     border-bottom: 1px solid #e4e9f2;
   }
-
   .product__image,
   .nav__content-left button svg {
     display: none;
@@ -329,7 +436,6 @@ button.delete__item {
   .nav__content-left .nav__icons {
     margin-right: 0;
   }
-
   .nav__ul-desktop {
     display: flex;
     gap: 2rem;
@@ -338,32 +444,28 @@ button.delete__item {
     list-style-type: none;
     position: relative;
   }
-
   .nav__ul-desktop li:hover::after {
     content: "";
     position: absolute;
-    top: 63px;
+    top: 66px;
     border-bottom: 4px solid var(--orange);
     width: 100%;
   }
-
   .nav__ul-desktop li a {
     text-decoration: none;
     color: var(--dark-grayish-blue);
-    transition: color 0.3s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    font-weight: 300;
   }
   .nav__ul-desktop li a:hover {
     color: var(--very-dark-blue);
   }
-
   .logo {
     margin-top: 0px;
   }
-
   .nav__content-right .nav__icons {
     margin-right: 3rem;
   }
-
   .cart__icon {
     cursor: pointer;
   }
@@ -376,6 +478,70 @@ button.delete__item {
     outline: 2px solid var(--orange);
   }
 
+  /* product */
+  .product__desc h2 {
+    font-size: 2.75rem;
+    line-height: 48px;
+  }
+  .product__desc p {
+    max-width: 445px;
+    margin-top: 1rem;
+  }
+  .product__pricing {
+    display: block;
+  }
+
+  .product__qty {
+    width: 157px;
+    height: 56px;
+    padding: 0rem 1rem;
+  }
+  .product__qty button {
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+  }
+
+  .product__qty button:hover {
+    color: #ffab6a;
+  }
+
+  .add__product {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+  }
+
+  .checkout__btn button {
+    cursor: pointer;
+    transition: background 0.1s ease-in-out;
+  }
+  .checkout__btn button:hover {
+    background-color: #ffab6a;
+  }
+
+  .add__to__cart {
+    display: inline-block;
+    padding: 0;
+  }
+
+  .add__to__cart button {
+    width: 272px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+  }
+
+  .add__to__cart button:hover {
+    background-color: #ffab6a;
+  }
+
+  .product__pricing-discount {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
   /* cart */
   .cart {
     width: 360px;
@@ -384,10 +550,15 @@ button.delete__item {
   }
 
   /* main */
+  main {
+    padding: 5rem 0;
+  }
+
   .main__content-desktop {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    align-items: center;
+    gap: 8rem;
     width: 90%;
     margin: 0 auto;
   }
@@ -404,13 +575,32 @@ button.delete__item {
     gap: 2rem;
     margin-top: 2rem;
   }
+
   .slider__buttons-desktop button {
     background-color: transparent;
     cursor: pointer;
     padding: 0;
-    outline: 2px solid var(--orange);
     border-radius: 10px;
     border: 0;
+    position: relative;
+    width: 88px;
+    height: 88px;
+  }
+
+  .slider__buttons-desktop button:hover::after {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    width: 88px;
+    height: 88px;
+    position: absolute;
+    transform: translate(-50%);
+    top: 0;
+  }
+
+  .slider__buttons-desktop button:active,
+  .slider__buttons-desktop button:focus {
+    outline: 2px solid var(--orange);
   }
   .slider__buttons-desktop button img {
     width: 88px;
