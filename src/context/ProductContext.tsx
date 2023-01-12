@@ -1,6 +1,10 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 import data from "../data/data";
 import { Product } from "../models/Product";
+
+type ProductContextProviderProps = {
+  children: React.ReactNode;
+};
 
 type ProductContextType = {
   product: Product[];
@@ -17,13 +21,12 @@ type ProductContextType = {
   handleIndexDecrease: () => void;
   handleIndexIncrease: () => void;
 };
+
 const ProductContext = createContext<ProductContextType | null>(null);
 
 export const ProductContextProvider = ({
   children,
-}: {
-  children: ReactNode;
-}) => {
+}: ProductContextProviderProps) => {
   const [product] = useState<Product[]>(data);
   const [cart, setCart] = useState<Product[]>([]);
   const [index, setIndex] = useState<number>(1);
