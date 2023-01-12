@@ -22,7 +22,9 @@ type ProductContextType = {
   handleIndexIncrease: () => void;
 };
 
-const ProductContext = createContext<ProductContextType | null>(null);
+const ProductContext = createContext<ProductContextType | null>(
+  {} as ProductContextType
+);
 
 export const ProductContextProvider = ({
   children,
